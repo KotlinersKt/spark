@@ -2,10 +2,7 @@ package spark;
 
 import java.io.IOException;
 
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import spark.util.SparkTestUtil;
 import spark.util.SparkTestUtil.UrlResponse;
@@ -14,6 +11,7 @@ import static spark.Spark.awaitInitialization;
 import static spark.Spark.before;
 import static spark.Spark.stop;
 
+@Ignore
 public class FilterTest {
     static SparkTestUtil testUtil;
 

@@ -729,7 +729,7 @@ public final class Service extends Routable {
      * @return HaltException object with body set
      */
     public HaltException halt(String body) {
-        throw new HaltException(body);
+        throw new HaltException(0,body);
     }
 
     /**

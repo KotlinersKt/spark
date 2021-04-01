@@ -19,7 +19,6 @@ package spark.examples.filter;
 import java.util.HashMap;
 import java.util.Map;
 
-import spark.Filter;
 import spark.Request;
 import spark.Response;
 
@@ -51,9 +50,7 @@ public class FilterExample {
         usernamePasswords.put("foo", "bar");
         usernamePasswords.put("admin", "admin");
 
-        before(new Filter() {
-            @Override
-            public void handle(Request request, Response response) {
+        before((request, response) ->{
                 String user = request.queryParams("user");
                 String password = request.queryParams("password");
 
@@ -62,7 +59,7 @@ public class FilterExample {
                     halt(401, "You are not welcome here!!!");
                 }
             }
-        });
+        );
 
         before("/hello", (request, response) -> {
             response.header("Foo", "Set by second before filter");
